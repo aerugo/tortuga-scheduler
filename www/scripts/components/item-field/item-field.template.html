@@ -1,0 +1,2 @@
+<input v-if="fieldtype == 'String'" v-on:blur="update" v-model="content">
+<su-datepicker v-if="fieldtype == 'Date'" :title="content | date 'YYYY-MM-DD" :date.sync="content" v-on:blur="update" id="date"></su-datepicker>

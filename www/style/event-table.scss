@@ -1,0 +1,40 @@
+.header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.news {
+    width: 1300px;
+}
+
+input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 12px;
+}
+
+::-webkit-input-placeholder {
+    color: black;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: black;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: black;  
+}
+
+:-ms-input-placeholder {  
+    color: black;  
+}
+
+.tooltip-inner {
+    background-color: green;
+    color: #fff;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: green;
+}

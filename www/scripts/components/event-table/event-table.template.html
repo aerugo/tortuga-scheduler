@@ -1,0 +1,35 @@
+<div class="container-fluid news">
+
+  <register-event :allevents.sync="events" ></register-event>
+
+  <div class="row">
+    <div class="col-xs-1"></div>
+
+    <div class="col-xs-10">
+    
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th class="info"><span style="display:block; width:300px;">Event</span></th>
+                  <th class="info"><span style="display:block; width:100px;">Date</span></th>
+                  <th class="info"><span style="display:block; width:100px;">Wizard</span></th>
+                  <th class="info"><span style="display:block; width:100px;">Action</span></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="event in events | filterBy false in 'isDeleted' | orderBy 'Date'">
+                  <th><item-field fieldtype="String" :content.sync="event['Event']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="Date" :content.sync="event['Date']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="String" :content.sync="event['Person']" :item.sync="event"></item-field></th>
+                  <th><update-button title="Delete" :id="event['ID']" :item.sync="event"></update-button></th>
+              </tr>
+          </tbody>
+      </table>
+    
+    </div>
+
+    <div class="col-xs-1"></div>
+  </div>
+
+
+</div>

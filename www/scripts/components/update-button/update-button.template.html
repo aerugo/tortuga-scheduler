@@ -1,0 +1,4 @@
+<button v-if="title == 'Return'" type="button" class="btn btn-primary active" v-on:click="post">{{title}}</button>
+<button v-if="title == 'Won'" type="button" class="btn btn-success active" v-on:click="post">{{title}}</button>
+<button v-if="title == 'Lost'" type="button" class="btn btn-danger active" v-on:click="post">{{title}}</button>
+<button v-if="title == 'Delete'" type="button" class="btn btn-danger active" v-on:click="delete">{{title}}</button>

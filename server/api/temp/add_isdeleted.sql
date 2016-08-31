@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[GoodNews] ADD CONSTRAINT DF_GoodNewsDelted DEFAULT 0 FOR isDeleted;
