@@ -1,0 +1,6 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "postgreSql.dbName": "tortugascheduler",
+    "postgreSql.hostName": "138.68.134.116",
+    "postgreSql.username": "postgres"
+}

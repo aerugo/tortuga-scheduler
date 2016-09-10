@@ -28,6 +28,8 @@
     "morgan": "^1.7.0",
     "node-env-file": "^0.1.8",
     "normalize": "^0.3.1",
+    "pg": "^6.1.0",
+    "pg-promise": "^5.3.2",
     "rome": "^2.1.22",
     "seriate": "^0.8.0",
     "vue": "^1.0.26",

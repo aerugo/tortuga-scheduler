@@ -1,7 +1,7 @@
 'use strict'
 
 import Vue from 'vue';
-import template from './item-field.template.html';
+import template from './location-display.template.html';
 import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
@@ -59,6 +59,6 @@ const ItemField = Vue.extend({
   },
 });
 
-Vue.component('item-field', ItemField)
+Vue.component('ocation-display', LocationDisplay)
 
-export default ItemField;
+export default LocationDisplay;

@@ -5,12 +5,17 @@
         <div class="container-fluid news header">
             <div class="row">
                 <div class="col-xs-1"></div>
-                <div class="col-xs-10"><h1>Tortuga Scheduler</h1></div>
+                <div class="col-xs-10">
+
+                    <a v-link="{ path: '/admin' }">Admin</a>
+
+                    <ul v-for="event in events">
+                        <li>Það er opið í {{event['place']}}, {{event['person']}} mannar milli {{event['starttime']}} og {{event['endtime']}}</li>
+                    </ul>
+
+                </div>
                 <div class="col-xs-1"></div>      
             </div>
         </div>
-        <event-table></event-table>
     </main>
 </div>
-
-

@@ -7,21 +7,31 @@
 
     <div class="col-xs-10">
     
+    <h3>Scheduled time slots</h3>
+    
       <table class="table table-hover">
           <thead>
-              <tr>
-                  <th class="info"><span style="display:block; width:300px;">Event</span></th>
-                  <th class="info"><span style="display:block; width:100px;">Date</span></th>
-                  <th class="info"><span style="display:block; width:100px;">Wizard</span></th>
-                  <th class="info"><span style="display:block; width:100px;">Action</span></th>
+              <tr class="info">
+                <th><span style="display:block; width:50px;">Place</span></th>
+                <th><span style="display:block; width:50px;">Date</span></th>
+                <th><span style="display:block; width:100px;">Name</span></th>
+                <th><span style="display:block; width:75px;">Arrival</span></th>
+                <th><span style="display:block; width:75px;">Departure</span></th>
+                <th><span style="display:block; width:100px;">Email</span></th>
+                <th><span style="display:block; width:200px;">Comment</span></th>
+                <th><span style="display:block; width:100px;">Action</span></th>
               </tr>
           </thead>
           <tbody>
-              <tr v-for="event in events | filterBy false in 'isDeleted' | orderBy 'Date'">
-                  <th><item-field fieldtype="String" :content.sync="event['Event']" :item.sync="event"></item-field></th>
-                  <th><item-field fieldtype="Date" :content.sync="event['Date']" :item.sync="event"></item-field></th>
-                  <th><item-field fieldtype="String" :content.sync="event['Person']" :item.sync="event"></item-field></th>
-                  <th><update-button title="Delete" :id="event['ID']" :item.sync="event"></update-button></th>
+              <tr v-for="event in events | filterBy false in 'isdeleted' | orderBy 'date'">
+                  <th><item-field fieldtype="Place" :content.sync="event['place']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="Date" :content.sync="event['date']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="String" :content.sync="event['person']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="Time" :content.sync="event['starttime']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="Time" :content.sync="event['endtime']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="String" :content.sync="event['email']" :item.sync="event"></item-field></th>
+                  <th><item-field fieldtype="String" :content.sync="event['comment']" :item.sync="event"></item-field></th>
+                  <th><update-button title="Delete" :item.sync="event"></update-button></th>
               </tr>
           </tbody>
       </table>

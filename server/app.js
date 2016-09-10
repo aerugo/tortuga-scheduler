@@ -3,6 +3,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import sql from 'seriate';
+import pg from 'pg';
 import config from './config';
 import utils from './utils/utils';
 

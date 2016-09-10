@@ -9,10 +9,6 @@ Vue.use(VueResource);
 const UpdateButton = Vue.extend({
   template,
   props: {
-    id: {
-      type: Number,
-      default: null
-    },
     connectionOk: {
       type: Boolean,
       default: true
@@ -34,7 +30,7 @@ const UpdateButton = Vue.extend({
   },
   methods: {
     post: function (event) {
-      let url = '/api/events/update/' + this.id;
+      let url = '/api/events/update/' + this.item.id;
       Vue.http.put(url, this._item).then((response) => {
         this.connectionOk = true;
       }, (response) => {
@@ -42,15 +38,14 @@ const UpdateButton = Vue.extend({
       });
     },
     delete: function (event) {
-      this.item.isDeleted = 1;
-      let url = '/api/events/update/' + this.id;
+      this.item.isdeleted = true;
+      let url = '/api/events/update/' + this.item.id;
       Vue.http.put(url, this.item).then((response) => {
         this.connectionOk = true;
       }, (response) => {
         this.connectionOk = false;
-        this.item.isDeleted = 0;
+        this.item.isdeleted = false;
       });
-       this.item.isDeleted = true;
     },
   },
   computed: {

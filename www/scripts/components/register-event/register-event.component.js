@@ -9,46 +9,42 @@ Vue.use(VueResource);
 const RegisterEvent = Vue.extend({
   template,
   props: {
-    allevents: {
-      type: Array,
-    },
+    allevents: {},
   },
   data: function() {
     return {
-        event: '',
+        comment: '',
         person: '',
-        date: null,
+        date: new Date(),
+        starttime: "12:00",
+        endtime: "17:00",
+        email: '',
+        place: '',
     }
   },
   methods: {
     post: function (event) {
       let item = {
-        "Event": this.event,
-        "Person": this.person,
-        "Date": this.date,
-        "isDeleted": false
+        "comment": this.comment,
+        "person": this.person,
+        "date": this.date,
+        "isdeleted": false,
+        "starttime": this.starttime,
+        "endtime": this.endtime,
+        "email": this.email,
+        "place": this.place,
       };
       let url = '/api/events/create/';
       Vue.http.put(url, item).then((response) => {
         this.connectionOk = true;
         item.ID = response.data.ID;
         this.allevents.push(item);
-        this.$data = initialState()
       }, (response) => {
         this.connectionOk = false;
       });
     }
   },
 });
-
-// outside of the component:
-function initialState (){
-  return {
-    name: '',
-    news: '',
-    date: new Date(),
-  }
-}
 
 Vue.component('register-event', RegisterEvent)
 

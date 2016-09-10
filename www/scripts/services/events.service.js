@@ -2,6 +2,7 @@
 
 import Promise from 'bluebird';
 import utils from './utils.js';
+import moment from 'moment';
 
 // Get shorthands to utils.storage and utils.http
 const {storage, http} = utils;
@@ -15,6 +16,16 @@ function getCurrentRemoteEvents() {
     })
 }
 
+function getOnDate(date) {
+    let _headers = {};
+    let _date = moment(date).format("DDMMYYYY");
+    return http.get('/api/events/all/' + _date, {headers: _headers})
+    .then((events) => {
+        return Promise.resolve(events);
+    })
+}
+
 export default {
+    getOnDate: getOnDate,
     getAllEvents: getCurrentRemoteEvents
 }

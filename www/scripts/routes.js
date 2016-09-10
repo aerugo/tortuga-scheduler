@@ -16,7 +16,7 @@ import components from './components/components'
 const app = Vue.extend({});
 
 const router = new VueRouter({
-    hashbang: false,
+    history: false,
 });
 
 router.map({
@@ -24,11 +24,11 @@ router.map({
         name: 'main',
         component: components.mainRoute,
     },
+    '/admin': {
+        name: 'admin',
+        component: components.adminRoute,
+    },
 })
-
-router.redirect({
-  '*': '/',
-});
 
 router.start(app, '#app-mount');
 

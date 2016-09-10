@@ -1,35 +1,46 @@
-<div class="container-fluid input-container">
-    <div class="row">
+<div class="row input">
 
-        <div class="col-xs-1"></div>
+    <div class="col-xs-1"></div>
 
-        <div class="col-xs-4">
-            <div class="form-group">
-            <label for="project">Event:</label>
-            <input class="form-control input" type="text" v-model="event" id="event">
-            </div>
-        </div>
+    <div class="col-xs-10">
 
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label for="person">Date:</label>
-                <su-datepicker class="form-control input" :date.sync="date" id="date"></su-datepicker>
-            </div>
-        </div>
+    <h3>New time slot</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr class="active">
+                <th><span style="display:block; width:50px;">Place</span></th>
+                <th><span style="display:block; width:50px;">Date</span></th>
+                <th><span style="display:block; width:100px;">Name</span></th>
+                <th><span style="display:block; width:75px;">Arrival</span></th>
+                <th><span style="display:block; width:75px;">Departure</span></th>
+                <th><span style="display:block; width:100px;">Email</span></th>
+                <th><span style="display:block; width:200px;">Comment</span></th>
+                <th><span style="display:block; width:100px;">Action</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <th>
+                <select v-model="place">
+                    <option value="Tortuga" selected>Tortuga</option>
+                    <option value="Kosningamiðstöð">Kosningamiðstöð</option>
+                    <option value="S Kosningaskrifstofa">S Kosningaskrifstofa</option>
+                    <option value="NA Kosningaskrifstofa">NA Kosningaskrifstofa</option>
+                    <option value="NV Kosningaskrifstofa">NV Kosningaskrifstofa</option>
+                </select>
+                </th>
+                <th><su-datepicker :title="content | date 'YYYY-MM-DD" :date.sync="date" id="date"></su-datepicker></th>
+                <th><input placeholder="Name" v-model="person"></th>
+                <th><input type="time" v-model="starttime"></th>
+                <th><input type="time" v-model="endtime"></th>
+                <th><input placeholder="Email"  v-model="email"></th>
+                <th><input placeholder="Comment"  v-model="comment"></th>
+                <th><button id="postButton" type="button" class="btn btn-primary" v-on:click="post">Post</button></th>
+            </tr>
+        </tbody>
+    </table>
 
-        <div class="col-xs-2">
-            <div class="form-group">
-                <label for="person">Wizard:</label>
-            <input class="form-control input" type="text" v-model="person" id="wizard">
-            </div>
-        </div>
-
-        <div class="col-xs-1">
-            <div class="form-group">
-            <button id="postButton" type="button" class="btn btn-primary btn-lg add-button" v-on:click="post">Post event</button>
-            </div>
-        </div>
-
-        <div class="col-xs-1"></div>
     </div>
+
+    <div class="col-xs-1"></div>
 </div>
