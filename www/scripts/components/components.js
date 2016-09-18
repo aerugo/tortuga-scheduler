@@ -7,6 +7,7 @@ import RegisterEvent from './register-event/register-event.component'
 import SuDatepicker from './su-datepicker/su-datepicker.component'
 import UpdateButton from './update-button/update-button.component'
 import ItemField from './item-field/item-field.component'
+import LocationDisplay from './location-display/location-display.component'
 
 export default {
     'mainRoute': MainRoute,
@@ -16,4 +17,5 @@ export default {
     'suDatepicker': SuDatepicker,
     'updateButton': UpdateButton,
     'itemField': ItemField,
+    'locationDisplay': LocationDisplay,
 }

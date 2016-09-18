@@ -33,8 +33,11 @@ export const createEvent = (req, res) => {
 export const updateEvent = (req, res) => {
     let {id} = req.params;
     let _event = req.body;
+
     events.update(id, _event)
-    .then((eventItem) => res.status(200).json(eventItem))
+    .then((eventItem) => {
+        return res.status(200).json(eventItem);
+    })
     .catch((err) => utils.handleError(res, err));
 }
 

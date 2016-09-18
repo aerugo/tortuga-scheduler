@@ -6,59 +6,26 @@ import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
 
-const ItemField = Vue.extend({
+const LocationDisplay = Vue.extend({
   template,
   props: {
-    content: {
-      type: null,
+    open: {
+      type: Boolean,
     },
-    item: {
-      type: Object,
-    },
-    fieldtype: {
+    place: {
       type: String,
     },
-    dateTo: {
-      type: null,
-    },
-    dateFrom: {
-      type: null,
-    },
-  },
-  methods: {
-    update: function (event) {
-      let url = '/api/events/update/' + this.item.id;
-      Vue.http.put(url, this.item).then((response) => {
-        this.connectionOk = true;
-      }, (response) => {
-        this.connectionOk = false;
-      });
-    },
-  },
-  computed: {
-    _dateFrom: {
-      get: function () {
-        return this.dateFrom;
-      },
-      set: function (dateFrom) {
-        if (!moment(dateFrom).isSame(this.dateFrom, 'day')) {
-          this.dateFrom = dateFrom;
-        }
-      },
-    },
-    _dateTo: {
-      get: function () {
-        return this.dateTo;
-      },
-      set: function (dateTo) {
-        if (!moment(dateTo).isSame(this.dateTo, 'day')) {
-          this.dateTo = dateTo;
-        }
-      },
+    items: {
     },
   },
 });
 
-Vue.component('ocation-display', LocationDisplay)
+Vue.component('location-display', LocationDisplay)
 
 export default LocationDisplay;
+
+Vue.filter('dateandplace', function (value, date, place) {
+  let _date = moment(value[0].date).format("YYYY-MM-DD");
+  let _place = value[0].place;
+  return _date == date && _place == place;
+})

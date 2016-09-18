@@ -1,4 +1,14 @@
-<input v-if="fieldtype == 'String'" v-on:blur="update" v-model="content">
-<input v-if="fieldtype == 'Place'" v-model="content" disabled>
-<input v-if="fieldtype == 'Time'" type="time" v-on:blur="update" v-model="content">
-<su-datepicker v-if="fieldtype == 'Date'" :title="content | date 'YYYY-MM-DD" :date.sync="content" v-on:blur="update" id="date"></su-datepicker>
+<h2>{{place}}</h2>
+<div v-if="open">
+    <p><b>{{place}} is open today!</b></p>
+        <ul v-for="event in items">
+            <li>
+                <p>{{event.person}} is there from {{event.starttime}} to {{event.endtime}}</p>
+                <p v-if="event.email">{{event.person}}s email is: {{event.email}}</p>
+                <p v-if="event.person">Comment: {{event.comment}}</p>
+            </li>
+        </ul>
+</div>
+<div v-else>
+    <p><b>{{place}} is not open today.</b></p>
+</div>

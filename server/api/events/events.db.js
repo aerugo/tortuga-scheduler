@@ -23,7 +23,7 @@ export function getAll() {
 }
 
 export function getOnDate(date) {
-    let _date = moment(date, "DDMMYYYY").format("DD-MM-YYYY");
+    let _date = moment(date, "DDMMYYYY").format("YYYY-MM-DD");
     return new Promise((resolve, reject) => {
         let query = `select * from timeslots WHERE date = '${_date}' AND isdeleted IS NOT TRUE`
         db.any(query)
@@ -77,9 +77,9 @@ export function update(id, event) {
             , "date"
             , "starttime"
             , "endtime"
-            , "isdeleted"
             , "place"
             , "email"
+            , "isdeleted"
         ) 
         = 
         (

@@ -20,9 +20,11 @@ function getOnDate(date) {
     let _headers = {};
     let _date = moment(date).format("DDMMYYYY");
     return http.get('/api/events/all/' + _date, {headers: _headers})
-    .then((events) => {
-        return Promise.resolve(events);
-    })
+    .then(function(events) {
+        storage.set('currentEvents', events);
+    }, function(error) {
+        console.log(error);
+    });
 }
 
 export default {
